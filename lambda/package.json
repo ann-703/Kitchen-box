@@ -1,0 +1,10 @@
+{
+  "name": "kitchen-inbox",
+  "version": "1.0.0",
+  "description": "Alexa skill that adds spoken items to the Kitchen Inbox Google Sheet",
+  "main": "index.js",
+  "dependencies": {
+    "ask-sdk-core": "^2.14.0",
+    "ask-sdk-model": "^1.86.0"
+  }
+}

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kitchen Box Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1f2a37;
+    --paper: #ffffff;
+    --accent: #e4572e;
+    --accent-soft: #fde4dc;
+    --line: #d5dbe3;
+  }
+  @page { size: letter; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #eee; color: var(--ink); }
+  body { font-family: "Fredoka", "Arial Rounded MT Bold", system-ui, sans-serif; }
+
+  .page {
+    width: 8.5in; height: 11in; margin: 0 auto; background: var(--paper);
+    padding: 0.5in 0.6in 0.45in; display: flex; flex-direction: column; gap: 0.17in;
+  }
+
+  header { display: flex; align-items: center; gap: 18px; border-bottom: 4px solid var(--ink); padding-bottom: 12px; }
+  .box {
+    width: 92px; height: 80px; flex: none; position: relative;
+    background: var(--accent); border: 4px solid var(--ink); border-radius: 10px;
+    display: grid; place-items: center; font-size: 42px;
+  }
+  .box::before {
+    content: ""; position: absolute; left: -10px; right: -10px; top: -16px; height: 16px;
+    background: var(--accent); border: 4px solid var(--ink); border-radius: 8px;
+  }
+  h1 { margin: 0; font-size: 50px; line-height: 1; }
+  .sub { margin: 6px 0 0; font-size: 21px; }
+
+  h2 { margin: 0 0 8px; font-size: 25px; display: flex; align-items: center; gap: 10px; }
+  .num {
+    width: 38px; height: 38px; border-radius: 50%; background: var(--ink); color: #fff;
+    display: inline-grid; place-items: center; font-size: 22px; flex: none;
+  }
+
+  .say {
+    margin: 0; padding: 12px 18px; border: 3px solid var(--ink); border-radius: 16px;
+    font-size: 28px; font-weight: 700; line-height: 1.25; background: var(--accent-soft);
+  }
+  .say small { display: block; font-size: 17px; font-weight: 400; margin-top: 2px; }
+  .blank { display: inline-block; min-width: 110px; border-bottom: 3px dashed var(--ink); }
+
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .step {
+    border: 3px solid var(--ink); border-radius: 14px; padding: 10px 10px 12px;
+    font-size: 19px; line-height: 1.25; text-align: center;
+  }
+  .step b { display: block; font-size: 22px; margin-top: 4px; }
+  .who { font-size: 15px; text-transform: uppercase; letter-spacing: .06em; color: #5b6675; }
+  .alexa { background: #f1f4f8; }
+
+  .examples { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+  .examples li {
+    font-size: 19px; padding: 6px 14px; border: 2px solid var(--line); border-radius: 999px;
+  }
+
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .card { border: 3px solid var(--ink); border-radius: 16px; padding: 12px 16px; }
+  .card p { margin: 0; font-size: 19px; line-height: 1.35; }
+  .card .big { font-size: 26px; font-weight: 700; margin-bottom: 2px; }
+
+  .tips { margin: 0; padding-left: 22px; font-size: 18px; line-height: 1.45; }
+
+  footer {
+    margin-top: auto; border-top: 2px solid var(--line); padding-top: 10px;
+    font-size: 15px; line-height: 1.4; color: #444f5c;
+  }
+
+  @media print {
+    html, body { background: none; }
+    .page { margin: 0; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @media screen and (max-width: 8.5in) {
+    .page { width: 100%; height: auto; min-height: 100vh; padding: 24px 16px; }
+    .steps, .row { grid-template-columns: 1fr 1fr; }
+    h1 { font-size: 38px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="box">🥛</div>
+    <div>
+      <h1>Kitchen Box</h1>
+      <p class="sub">Ran out of something? Need to remember something? Tell Alexa!</p>
+    </div>
+  </header>
+
+  <section>
+    <h2><span class="num">1</span>Add one thing</h2>
+    <p class="say">“Alexa, ask Kitchen Box to add <span class="blank">&nbsp;</span>.”
+      <small>Alexa says “Added …” and you're done.</small></p>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span>Add lots of things</h2>
+    <div class="steps">
+      <div class="step"><span class="who">You</span><b>“Alexa, open Kitchen Box”</b></div>
+      <div class="step alexa"><span class="who">Alexa</span><b>“What should I add?”</b></div>
+      <div class="step"><span class="who">You</span><b>“add milk”<br>“add bananas”</b></div>
+      <div class="step"><span class="who">You, when done</span><b>“no”</b></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span>Things you can say</h2>
+    <ul class="examples">
+      <li>add oat milk</li>
+      <li>we're out of dish soap</li>
+      <li>we need diapers</li>
+      <li>buy paper towels</li>
+      <li>remind me to book the dentist</li>
+      <li>add batteries for the toy digger</li>
+    </ul>
+  </section>
+
+  <div class="row">
+    <div class="card">
+      <p class="big">🛑 To finish</p>
+      <p>Say <b>“no”</b> or <b>“stop”</b>. If you just say one thing (step 1), Alexa finishes by herself.</p>
+    </div>
+    <div class="card">
+      <p class="big">💡 Tips</p>
+      <ul class="tips">
+        <li>Say <b>“ask”</b> or <b>“open”</b>, not “tell”.</li>
+        <li>One thing at a time works best.</li>
+        <li>Speak clearly. Alexa writes exactly what you say.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <b>For grown-ups:</b> everything goes into the “Kitchen Inbox” Google Sheet. Ankita's assistant checks it every morning
+    and adds things to the shopping baskets. Please don't use Alexa's own shopping list for these. Plain “Alexa, add milk”
+    (without “Kitchen Box”) goes there instead.
+  </footer>
+</div>
+</body>
+</html>
